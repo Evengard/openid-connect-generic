@@ -718,7 +718,7 @@ class OpenID_Connect_Generic_Client_Wrapper {
 		$this->save_refresh_token( $manager, $token, $token_response );
 
 		// you did great, have a cookie!
-		wp_set_auth_cookie( $user->ID, false, '', $token );
+		wp_set_auth_cookie( $user->ID, true, '', $token );
 		do_action( 'wp_login', $user->user_login, $user );
 	}
 
