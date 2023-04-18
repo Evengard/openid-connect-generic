@@ -71,7 +71,7 @@ class OpenID_Connect_Generic_Login_Form {
 	 */
 	public function handle_redirect_login_type_auto() {
 
-		if ( 'wp-login.php' == $GLOBALS['pagenow']
+		if ( 'wp-login.php' == $GLOBALS['pagenow'] && $_GET['force_redirect'] !== 'false'
 			&& ( 'auto' == $this->settings->login_type || ! empty( $_GET['force_redirect'] ) )
 			// Don't send users to the IDP on logout or post password protected authentication.
 			&& ( ! isset( $_GET['action'] ) || ! in_array( $_GET['action'], array( 'logout', 'postpass' ) ) )
